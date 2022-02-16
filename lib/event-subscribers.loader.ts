@@ -7,6 +7,7 @@ import { DiscoveryService, MetadataScanner } from '@nestjs/core';
 import { InstanceWrapper } from '@nestjs/core/injector/instance-wrapper';
 import { EventEmitter2 } from 'eventemitter2';
 import { EventsMetadataAccessor } from './events-metadata.accessor';
+import { types } from 'util';
 
 @Injectable()
 export class EventSubscribersLoader
@@ -33,6 +34,7 @@ export class EventSubscribersLoader
     [...providers, ...controllers]
       .filter(wrapper => wrapper.isDependencyTreeStatic())
       .filter(wrapper => wrapper.instance)
+      .filter(wrapper => !types.isProxy(wrapper.instance))
       .forEach((wrapper: InstanceWrapper) => {
         const { instance } = wrapper;
 
