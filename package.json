@@ -1,5 +1,5 @@
 {
-  "name": "@nestjs/event-emitter",
+  "name": "@student-coin/event-emitter",
   "version": "1.0.0",
   "description": "Nest - modern, fast, powerful node.js web framework (@event-emitter)",
   "author": "Kamil Mysliwiec",
